@@ -19,6 +19,8 @@ contract MyEpicNFT is ERC721URIStorage {
   string[] secondWords = ["Angry", "Thomas", "Market", "Merda", "Hold", "Buy", "hard", "DoAnything", "Awesome", "Share", "Winner", "Hero", "Capaz", "Warrior", "Weak"];
   string[] thirdWords = ["High", "Lebron", "Down", "Bull", "Bear", "Drunk", "Healthy", "Family", "Consistencily", "wall", "Chair", "Skin", "Gamer", "Sad", "Mother"];
 
+  event NewEpicNFTMinted(address sender, uint256 tokenId);
+
   constructor() ERC721 ("IsaiasNFT", "ISADRK"){
     console.log("This is my NFT contract. CHORA MALUCO");
   }
@@ -84,5 +86,7 @@ contract MyEpicNFT is ERC721URIStorage {
     
     _tokenIds.increment();
     console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+
+    emit NewEpicNFTMinted(msg.sender, newItemId);
   }
 }
