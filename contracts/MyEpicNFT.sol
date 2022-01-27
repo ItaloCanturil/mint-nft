@@ -21,7 +21,7 @@ contract MyEpicNFT is ERC721URIStorage {
 
   event NewEpicNFTMinted(address sender, uint256 tokenId);
 
-  constructor() ERC721 ("IsaiasNFT", "ISADRK"){
+  constructor() ERC721 ("CousinNext", "PRIMO"){
     console.log("This is my NFT contract. CHORA MALUCO");
   }
 
@@ -45,6 +45,10 @@ contract MyEpicNFT is ERC721URIStorage {
 
   function random(string memory input) internal pure returns (uint256) {
     return uint256(keccak256(abi.encodePacked(input)));
+  }
+
+  function testRequire(uint256 _count) public view {
+    require(_count < _tokenIds.current());
   }
 
   function makeAnEpicNFT() public {
